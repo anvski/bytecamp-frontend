@@ -5,11 +5,12 @@
 
 .content-container {
   margin: 15px 0 15px 0;
+  overflow: hidden;
 }
 
 .image-container {
   margin: auto;
-  width: 75vw;
+  width: 100%;
   height: 55vh;
   padding: 20px;
   background-image: url("../../assets/images/coding-image.jpg");
@@ -20,9 +21,10 @@
 
 .text-prompt {
   padding: 15px;
-  background-color: rgb(198, 198, 198);
+  background-color: rgb(151, 151, 151);
   float: left;
   margin: auto;
+  border-radius: 8px;
 }
 
 .text-prompt h1 {
@@ -38,4 +40,11 @@ h3 {
   color: rgb(55, 55, 55);
   align-items: center;
   margin: 0;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }

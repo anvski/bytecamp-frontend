@@ -1,0 +1,47 @@
+<mat-card>
+  <mat-card-title>Најава</mat-card-title>
+  <mat-card-subtitle class="mat-c-subtitle"
+    >Приклучете се и започнете со учење денес!</mat-card-subtitle
+  >
+  <mat-card-content class="mat-c-content">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <p>
+        <mat-form-field>
+          <input
+            type="text"
+            matInput
+            placeholder="Корисничко име"
+            formControlName="username"
+          />
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input
+            type="password"
+            matInput
+            placeholder="Лозинка"
+            formControlName="password"
+          />
+        </mat-form-field>
+      </p>
+
+      <p *ngIf="error" class="error">
+        {{ error }}
+      </p>
+
+      <div class="button">
+        <button type="submit" mat-button>Продолжи</button>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions
+    >Не си корисник?
+    <div class="button">
+      <button type="button" mat-button routerLink="/register">
+        Регистрирај се
+      </button>
+    </div></mat-card-actions
+  >
+</mat-card>

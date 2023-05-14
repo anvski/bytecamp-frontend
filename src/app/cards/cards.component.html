@@ -4,9 +4,9 @@
       fxFlex="33%"
       fxFlex.xs="100%"
       fxFlex.sm="33%"
-      *ngFor="let num of [1, 2, 3, 4, 5, 6, 7]"
+      *ngFor="let card of cards"
     >
-      <app-card></app-card>
+      <app-card [content]="card"></app-card>
     </div>
   </div>
 </div>

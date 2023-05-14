@@ -6,8 +6,7 @@
       Toggle extra text
     </button>
   </mat-drawer>
-  <app-content></app-content>
-  <div class="example-sidenav-content">
-    <app-cards></app-cards>
-  </div>
+  <ng-container class="content">
+    <router-outlet></router-outlet>
+  </ng-container>
 </mat-drawer-container>

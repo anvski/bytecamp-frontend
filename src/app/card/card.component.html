@@ -1,11 +1,11 @@
-<a href="#">
+<a [routerLink]="['courses', content?.id]">
   <mat-card class="mat-elevation-z4">
     <mat-card-header>
-      <mat-card-title>C++</mat-card-title>
+      <mat-card-title>{{ content?.name }}</mat-card-title>
     </mat-card-header>
     <img mat-card-image src="../assets/images/C++logo.png" />
     <mat-card-content>
-      <p>Course for the C++ programming language!</p>
+      <p>{{ content?.description }}</p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>LIKE</button>

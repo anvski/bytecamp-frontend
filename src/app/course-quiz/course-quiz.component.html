@@ -1,0 +1,39 @@
+<div>
+  <mat-selection-list
+    [multiple]="false"
+    #optionsList="matSelectionList"
+    *ngFor="let question of questions?.questionList; let i = index"
+  >
+    <h4 matLine style="padding-left: 15px">{{ question?.question }}</h4>
+    <mat-list-option
+      [value]="question.answer1"
+      #question1="matListOption"
+      (click)="updateAnswer(optionsList, question, question1)"
+    >
+      {{ question.answer1 }}
+    </mat-list-option>
+    <mat-list-option
+      [value]="question.answer2"
+      #question2="matListOption"
+      (click)="updateAnswer(optionsList, question, question2)"
+    >
+      {{ question.answer2 }}
+    </mat-list-option>
+    <mat-list-option
+      [value]="question.answer3"
+      #question3="matListOption"
+      (click)="updateAnswer(optionsList, question, question3)"
+    >
+      {{ question.answer3 }}
+    </mat-list-option>
+    <mat-list-option
+      [value]="question.answer4"
+      #question4="matListOption"
+      (click)="updateAnswer(optionsList, question, question4)"
+    >
+      {{ question.answer4 }}
+    </mat-list-option>
+  </mat-selection-list>
+
+  <button type="button" (click)="submit()">Submit</button>
+</div>

@@ -7,21 +7,29 @@
   >
     <mat-icon>menu</mat-icon>
   </button>
-  <span>My App</span>
+  <span><a routerLink="">ByteCamp</a></span>
   <span class="example-spacer"></span>
+  <span class="text"></span>
   <button
     mat-icon-button
     class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
+    aria-label="Log in button"
+    routerLink="/login"
+    *ngIf="!authenticated"
   >
-    <mat-icon>favorite</mat-icon>
+    <mat-icon>login</mat-icon>
   </button>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-  >
-    <mat-icon>share</mat-icon>
-  </button>
+  <ng-container *ngIf="authenticated">
+    <mat-icon>verified_user</mat-icon>
+    <p style="margin: 0; padding: 0">Hi {{ username }}</p>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Log in button"
+      (click)="signOut()"
+    >
+      <mat-icon>logout</mat-icon>
+    </button>
+  </ng-container>
 </mat-toolbar>
 <app-sidenav></app-sidenav>

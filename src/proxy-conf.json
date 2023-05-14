@@ -1,0 +1,18 @@
+{
+  "/course": {
+    "target": "http://localhost:8080",
+    "secure": false
+  },
+  "/exam": {
+    "target": "http://localhost:8080",
+    "secure": false
+  },
+  "/user": {
+    "target": "http://localhost:8080",
+    "secure": false
+  },
+  "/auth": {
+    "target": "http://localhost:8080",
+    "secure": false
+  }
+}

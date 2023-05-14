@@ -17,6 +17,18 @@ import { ContentComponent } from './content/content.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDividerModule } from '@angular/material/divider';
+import { CourseComponent } from './course/course.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { CourseOverviewComponent } from './course-overview/course-overview.component';
+import { CourseQuizComponent } from './course-quiz/course-quiz.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+import { LoginComponent } from './user-auth/login/login.component';
+import { RegisterComponent } from './user-auth/register/register.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +38,11 @@ import { MatDividerModule } from '@angular/material/divider';
     SidenavComponent,
     ContentComponent,
     ToolbarComponent,
+    CourseComponent,
+    CourseOverviewComponent,
+    CourseQuizComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +56,14 @@ import { MatDividerModule } from '@angular/material/divider';
     MatIconModule,
     MatProgressBarModule,
     MatDividerModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatListModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatInputModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
