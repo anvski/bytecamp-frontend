@@ -1,6 +1,11 @@
 img {
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 400px;
+  max-height: 400px;
+  margin: auto;
+}
+
+mat-card-title {
+  font-size: 50px !important;
   margin: auto;
 }
 
@@ -45,9 +50,15 @@ img {
   background-color: rgb(123, 31, 162);
 }
 
-.code {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(123, 31, 162);
+pre {
+  background-color: rgb(81, 101, 109);
   width: fit-content;
+}
+
+h1 {
+  text-align: center;
+  color: rgb(66, 141, 91);
+}
+.content-div {
+  margin: 20px;
 }

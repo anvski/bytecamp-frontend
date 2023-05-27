@@ -1,12 +1,14 @@
 <nav mat-tab-nav-bar [tabPanel]="tabPanel">
-  <a
-    mat-tab-link
-    *ngFor="let link of links"
-    (click)="activeLink = link.url"
-    [active]="activeLink == link.url"
-    [routerLink]="[link.url]"
-  >
-    {{ link.text }}
-  </a>
+  <ng-container *ngFor="let link of links">
+    <div
+      *ngIf="!link.disabled"
+      (click)="activeLink = link.url"
+      [routerLink]="[link.url]"
+      mat-tab-link
+      [active]="activeLink == link.url"
+    >
+      {{ link.text }}
+    </div>
+  </ng-container>
 </nav>
 <mat-tab-nav-panel #tabPanel><router-outlet></router-outlet></mat-tab-nav-panel>

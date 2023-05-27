@@ -7,6 +7,7 @@ import { CourseQuizComponent } from './course-quiz/course-quiz.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { LoginComponent } from './user-auth/login/login.component';
 import { RegisterComponent } from './user-auth/register/register.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: UserProfileComponent },
 ];
 
 @NgModule({

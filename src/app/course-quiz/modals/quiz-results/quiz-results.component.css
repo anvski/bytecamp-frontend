@@ -1,0 +1,9 @@
+.mat-bottom-sheet-container {
+  padding: 0 !important;
+  height: 30vh;
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  display: block;
+}

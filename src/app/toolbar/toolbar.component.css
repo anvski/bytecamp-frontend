@@ -9,7 +9,14 @@
   z-index: 1000;
 }
 
-a {
+a,
+a > * {
   color: white;
   text-decoration: none;
+  transition: all ease 0.2s;
+}
+
+a:hover,
+a > :hover {
+  color: rgb(66, 141, 91);
 }

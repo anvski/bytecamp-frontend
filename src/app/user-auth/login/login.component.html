@@ -1,47 +1,67 @@
-<mat-card>
-  <mat-card-title>Најава</mat-card-title>
-  <mat-card-subtitle class="mat-c-subtitle"
-    >Приклучете се и започнете со учење денес!</mat-card-subtitle
-  >
-  <mat-card-content class="mat-c-content">
-    <form [formGroup]="form" (ngSubmit)="submit()">
-      <p>
-        <mat-form-field>
-          <input
-            type="text"
-            matInput
-            placeholder="Корисничко име"
-            formControlName="username"
-          />
-        </mat-form-field>
-      </p>
-
-      <p>
-        <mat-form-field>
-          <input
-            type="password"
-            matInput
-            placeholder="Лозинка"
-            formControlName="password"
-          />
-        </mat-form-field>
-      </p>
-
-      <p *ngIf="error" class="error">
-        {{ error }}
-      </p>
-
-      <div class="button">
-        <button type="submit" mat-button>Продолжи</button>
-      </div>
-    </form>
-  </mat-card-content>
-  <mat-card-actions
-    >Не си корисник?
-    <div class="button">
-      <button type="button" mat-button routerLink="/register">
-        Регистрирај се
+<div fxLayoutAlign="center center" fxFlexFill>
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">Најава</mat-toolbar>
+    <form
+      [formGroup]="form"
+      class="example-form"
+      fxLayoutAlign="stretch"
+      fxLayout="column"
+      (ngSubmit)="submit()"
+    >
+      <mat-form-field class="example-full-width">
+        <mat-label>Корисничко име</mat-label>
+        <input
+          type="username"
+          matInput
+          formControlName="username"
+          [errorStateMatcher]="matcher"
+          placeholder="Ваше корисничко име..."
+        />
+        <mat-error *ngIf="form.controls['username'].hasError('required')">
+          Корисничкото име е <strong>задолжително</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Лозинка</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="password"
+          [errorStateMatcher]="matcher"
+          placeholder="Ваша лозинка..."
+        />
+        <mat-error *ngIf="form.controls['password'].hasError('required')">
+          Лозинката е <strong>задолжителна</strong>
+        </mat-error>
+      </mat-form-field>
+      <button
+        color="accent"
+        mat-raised-button
+        type="submit"
+        [disabled]="!form.valid"
+      >
+        Најава
       </button>
-    </div></mat-card-actions
-  >
-</mat-card>
+    </form>
+    <mat-card-actions>
+      <div fxFlexFill fxLayout="column">
+        <mat-toolbar-row fxLayoutAlign="center center"
+          ><span style="color: whitesmoke"
+            >Немате корисничка сметка?</span
+          ></mat-toolbar-row
+        >
+        <button
+          mat-flat-button
+          type="submit"
+          color="primary"
+          routerLink="/register"
+        >
+          Регистрација
+        </button>
+        <mat-toolbar-row fxLayoutAlign="center center"
+          ><a routerLink="">Назад на насловна</a></mat-toolbar-row
+        >
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,55 +1,116 @@
-<mat-card>
-  <mat-card-title>Регистрација</mat-card-title>
-  <mat-card-subtitle class="mat-c-subtitle"
-    >Приклучете се и започнете со учење денес!</mat-card-subtitle
-  >
-  <mat-card-content class="mat-c-content">
-    <form [formGroup]="form" (ngSubmit)="submit()">
-      <p>
-        <mat-form-field>
-          <input
-            type="text"
-            matInput
-            placeholder="Корисничко име"
-            formControlName="username"
-          />
-        </mat-form-field>
-      </p>
-
-      <p>
-        <mat-form-field>
-          <input
-            type="password"
-            matInput
-            placeholder="Лозинка"
-            formControlName="password"
-          />
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field>
-          <input
-            type="password"
-            matInput
-            placeholder="Потврди лозинка"
-            formControlName="confirmPassword"
-          />
-        </mat-form-field>
-      </p>
-
-      <p *ngIf="error" class="error">
-        {{ error }}
-      </p>
-
-      <div class="button">
-        <button type="submit" mat-button>Продолжи</button>
-      </div>
+<div fxLayoutAlign="center center" fxFlexFill>
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">Регистрација</mat-toolbar>
+    <form
+      [formGroup]="form"
+      class="example-form"
+      fxLayoutAlign="stretch"
+      fxLayout="column"
+      (ngSubmit)="submit()"
+    >
+      <mat-form-field class="example-full-width">
+        <mat-label>Корисничко име</mat-label>
+        <input
+          type="username"
+          matInput
+          formControlName="username"
+          [errorStateMatcher]="matcher"
+          placeholder="Ваше корисничко име..."
+        />
+        <mat-error *ngIf="form.controls['username'].hasError('required')">
+          Корисничкото име е <strong>задолжително</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Е-пошта</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="emailFormControl"
+          [errorStateMatcher]="matcher"
+          placeholder="Пр. pat@example.com"
+        />
+        <mat-error
+          *ngIf="
+            form.controls['emailFormControl'].hasError('email') &&
+            !form.controls['emailFormControl'].hasError('required')
+          "
+        >
+          Ве молиме внесете валидна е-пошта
+        </mat-error>
+        <mat-error
+          *ngIf="form.controls['emailFormControl'].hasError('required')"
+        >
+          Е-поштата е <strong>задолжителна</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Лозинка</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="password"
+          [errorStateMatcher]="matcher"
+          placeholder="Ваша лозинка..."
+        />
+        <mat-error *ngIf="form.controls['password'].hasError('required')">
+          Лозинката е <strong>задолжителна</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Име</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="firstName"
+          [errorStateMatcher]="matcher"
+          placeholder="Ваше име..."
+        />
+        <mat-error *ngIf="form.controls['firstName'].hasError('required')">
+          Ве молиме внесете го вашето име.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Презиме</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="lastName"
+          [errorStateMatcher]="matcher"
+          placeholder="Ваше презиме..."
+        />
+        <mat-error *ngIf="form.controls['lastName'].hasError('required')">
+          Ве молиме внесете го вашето презиме
+        </mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        [disabled]="!form.valid"
+      >
+        Испрати
+      </button>
     </form>
-  </mat-card-content>
-  <mat-card-actions
-    >Имаш корисничка сметка?
-    <div class="button">
-      <button type="button" mat-button routerLink="/login">Најави се</button>
-    </div></mat-card-actions
-  >
-</mat-card>
+    <mat-card-actions>
+      <div fxFlexFill fxLayout="column">
+        <mat-toolbar-row fxLayoutAlign="center center"
+          ><span style="color: whitesmoke"
+            >Веќе имате корисничка сметка?</span
+          ></mat-toolbar-row
+        >
+        <button
+          mat-flat-button
+          type="submit"
+          color="primary"
+          routerLink="/login"
+        >
+          Најава
+        </button>
+        <mat-toolbar-row fxLayoutAlign="center center"
+          ><a routerLink="">Назад на насловна</a></mat-toolbar-row
+        >
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

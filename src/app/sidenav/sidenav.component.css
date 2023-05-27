@@ -8,3 +8,25 @@
   align-items: center;
   justify-content: center;
 }
+
+.flex-icon {
+  padding: 10px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.flex-icon a {
+  color: white;
+  text-decoration: none;
+  transition: all ease 0.2s;
+}
+
+.flex-icon a:hover {
+  color: rgb(66, 141, 91);
+}
+
+:host {
+  height: 100%;
+}

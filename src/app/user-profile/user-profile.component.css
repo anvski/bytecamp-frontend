@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card {
+  align-self: center;
+}
+
+#testId {
+  width: 0;
+  height: 0;
+}

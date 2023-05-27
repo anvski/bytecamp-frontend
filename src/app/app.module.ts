@@ -29,6 +29,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { QuizResultsComponent } from './course-quiz/modals/quiz-results/quiz-results.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
     CourseQuizComponent,
     LoginComponent,
     RegisterComponent,
+    QuizResultsComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +69,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     MatInputModule,
     HttpClientModule,
+    MatBottomSheetModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

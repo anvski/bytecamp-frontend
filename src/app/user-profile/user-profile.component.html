@@ -1,0 +1,50 @@
+<mat-card style="width: fit-content">
+  <mat-card-header>
+    <mat-card-title
+      ><mat-toolbar color="primary" style="margin-bottom: 50px"
+        >Профил</mat-toolbar
+      ></mat-card-title
+    >
+  </mat-card-header>
+  <div fxLayout="row">
+    <mat-card-content fxLayout="column">
+      <mat-form-field appearance="outline">
+        <mat-label>Корисничко име</mat-label>
+        <input matInput [value]="user?.username" readonly />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Име</mat-label>
+        <input matInput [value]="user?.firstName" readonly />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Презиме</mat-label>
+        <input matInput [value]="user?.lastName" readonly />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Е-пошта</mat-label>
+        <input matInput [value]="user?.email" readonly />
+      </mat-form-field>
+    </mat-card-content>
+    <div
+      fxLayout="column"
+      fxLayoutGap="15px"
+      style="padding-top: 16px"
+      id="col-elem"
+    >
+      <h3 style="color: whitesmoke">Положени курсеви:</h3>
+      <ng-container *ngFor="let passed of exams">
+        <app-card
+          [content]="passed.course"
+          [id]="passed.course.name"
+        ></app-card>
+        <button mat-button type="button" (click)="generatePDF(passed)">
+          <mat-icon>file_present</mat-icon>
+          Превезми сертификат
+        </button>
+      </ng-container>
+    </div>
+  </div>
+  <mat-card-actions fxLayout="column" fxLayoutAlign="center center">
+    <button type="button" routerLink="/home"><mat-icon>home</mat-icon></button>
+  </mat-card-actions>
+</mat-card>

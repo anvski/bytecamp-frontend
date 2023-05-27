@@ -1,0 +1,17 @@
+<mat-toolbar [color]="data.passed == true ? 'accent' : 'warn'">
+  <div>
+    <p
+      [innerHTML]="
+        data.passed == true
+          ? 'Квизот е успешно решен!'
+          : 'Квизот е неуспешно решен!'
+      "
+    ></p>
+  </div>
+  <div *ngIf="!data.passed">
+    <p>Точни одговори: {{ data.correctAnswers }}</p>
+  </div>
+  <div>
+    <p>Дата на завршување: {{ data.date }}</p>
+  </div>
+</mat-toolbar>

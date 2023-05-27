@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Scroll } from '@angular/router';
 
 @Component({
   selector: 'app-course',
@@ -23,12 +23,21 @@ export class CourseComponent implements OnInit {
       this.id = val['id'];
       this.links[0].url = `/home/courses/${val['id']}`;
       this.links[1].url = `/home/courses/${val['id']}/quiz/${val['id']}`;
-      this.activeLink = this.links[0].url;
+      if (!localStorage.getItem('user')) {
+        this.links[1].url = '/login';
+      }
+    });
+    this.router.events.subscribe((val) => {
+      console.log(val);
+      if (val instanceof Scroll) {
+        console.log('AND HERE');
+        this.activeLink = val.routerEvent.url;
+      }
     });
   }
   links = [
-    { text: 'Преглед', url: '/courses' },
-    { text: 'Квиз', url: '/courses/quiz' },
+    { text: 'Преглед', url: '/courses', disabled: false },
+    { text: 'Квиз', url: '/courses/quiz', disabled: false },
   ];
   activeLink = '/courses';
 }

@@ -3,12 +3,11 @@
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{ content?.name }}</mat-card-title>
   </mat-card-header>
-  <img mat-card-image src="../../assets/images/C++logo.png" alt="logo" />
+  <img mat-card-image [src]="contentImg" alt="logo" />
   <mat-card-content>
-    <div>ASDASDASDASD</div>
+    <div [innerHTML]="content?.content" class="content-div"></div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
+    <button mat-button (click)="backToTop()">Врати се нагоре</button>
   </mat-card-actions>
 </mat-card>

@@ -7,8 +7,9 @@ import { Course } from '../models/course';
   styleUrls: ['./card.component.css'],
 })
 export class CardComponent implements OnInit {
+  contentImg = '';
   ngOnInit(): void {
-    console.log('ID', this.content?.id);
+    this.contentImg = `../assets/images/${this.content?.name.toLocaleLowerCase()}.png`;
   }
   @Input() content: Course | undefined;
 }

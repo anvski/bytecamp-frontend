@@ -21,7 +21,9 @@
   </button>
   <ng-container *ngIf="authenticated">
     <mat-icon>verified_user</mat-icon>
-    <p style="margin: 0; padding: 0">Hi {{ username }}</p>
+    <a routerLink="/profile" style="text-decoration: none; color: white"
+      ><p style="margin: 0; padding: 0">Здраво, {{ username }}</p></a
+    >
     <button
       mat-icon-button
       class="example-icon favorite-icon"
